@@ -14,8 +14,6 @@ The expressive yet dangerous Pickle format is continuously used for Pre-trained 
 - modelscan
 - picklescan
 
-## Experiment Replication
-
 ### General Guideline
 
 
