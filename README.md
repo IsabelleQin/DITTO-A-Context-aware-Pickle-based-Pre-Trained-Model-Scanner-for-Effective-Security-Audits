@@ -14,9 +14,10 @@ The expressive yet dangerous Pickle format is continuously used for Pre-trained 
 - modelscan
 - picklescan
 
-## Experiment replication
+## Experiment Replication
 
-### Dataset
+### General Guideline
+
 
 ### Baseline Scanners
 We compare DITTO with three state-of-the-art static scanners, implemented with their GitHub instructions. 
