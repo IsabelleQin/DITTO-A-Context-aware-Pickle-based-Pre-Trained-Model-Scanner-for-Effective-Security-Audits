@@ -11,7 +11,7 @@ We combine Hugging Face's Pickle scanning results with an additional verificatio
 We identify 9,544 Pickle-based PTMs across 929 repositories (9.3\%), demonstrating that Pickle remains prevalent in recently published and widely reused PTMs. 
 Run ```verify_pickle.py``` to replicate this result. 
 Since the HF API is needed to obtain Hugging Face's scanning results, please provide your ```HF_KEY``` before executing the code. 
-The code should automatically download the 1,266 PTMs suspected of using Pickle and retain the 685 actual Pickle-based PTMs. 
+The code should automatically download the 1,266 PTMs suspected of using Pickle and retain the 685 actual Pickle-based PTMs under ```models/benign/hf_unscanned```. 
 ```repos/has_pickle.csv``` summarizes our investigation results. 
 
 We acknowledge that some maintainers may modify their repository and remove certain PTM files. 
