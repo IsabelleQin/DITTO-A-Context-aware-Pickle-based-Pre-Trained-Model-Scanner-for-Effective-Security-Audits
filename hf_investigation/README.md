@@ -17,7 +17,7 @@ The code should automatically download the 1,266 PTMs suspected of using Pickle 
 We acknowledge that some maintainers may modify their repository and remove certain PTM files. 
 To facilitate replication, we also provide the 685 Pickle-based PTMs directly. 
 
-## Model Scanner Evaluation (Section 3.2)
+## Model Scanner Evaluation (Section 2.2)
 
 We investigate the limitations of state-of-the-art model scanners with a total of 715 Pickle-based PTMs: 
 
