@@ -1,4 +1,4 @@
-## Hugging Face Investigation (Section 2.1)
+## Hugging Face Investigation (Section 3.1)
 
 ### Collect Repo Info
 We conducted a large-scale investigation of Pickle usage in 10,023 popular Hugging Face repositories created between July 1, 2025 and June 30, 2026. 
@@ -17,7 +17,7 @@ The code should automatically download the 1,266 PTMs suspected of using Pickle 
 We acknowledge that some maintainers may modify their repository and remove certain PTM files. 
 To facilitate replication, we also provide the 685 Pickle-based PTMs directly. 
 
-## Model Scanner Evaluation (Section 2.2)
+## Model Scanner Evaluation (Section 3.2)
 
 We investigate the limitations of state-of-the-art model scanners with a total of 715 Pickle-based PTMs: 
 
