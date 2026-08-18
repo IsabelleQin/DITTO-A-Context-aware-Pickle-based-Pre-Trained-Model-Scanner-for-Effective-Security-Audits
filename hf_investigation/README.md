@@ -27,4 +27,4 @@ We investigate the limitations of state-of-the-art model scanners with a total o
 4) 21 benign PTMs labeled "unsafe" by Hugging Face (*HF "Unsafe"*)
 
 The 715 PTMs are provided under the ```models``` directory, and our evaluation result is stored as ```repos/scanner_results.csv```. 
-Run ```scanner_eval.py``` to replicate the result. 
+Run ```scanner_eval.py``` to replicate the result. Then, run ```analyze.py``` to calculate the scanning coverage, false positives, and false negatives.  
