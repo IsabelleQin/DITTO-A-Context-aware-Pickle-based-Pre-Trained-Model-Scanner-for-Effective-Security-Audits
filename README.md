@@ -10,7 +10,7 @@ This replication package contains the data and code for the two experiments (i.e
 
 ### Dependencies
 - python>=3.11
-- torch
+- torch=2.13.0
 - numpy
 - fickling>=1.10
 - modelscan
