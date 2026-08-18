@@ -16,7 +16,7 @@ os.environ["HF_XET_NUM_CONCURRENT_RANGE_GETS"] = "1"
 HF_KEY = "YOUR_HF_KEY"
 INPUT = "./hf_investigation/repos/all_repo.json"
 OUTPUT = "./hf_investigation/repos/has_pickle.csv"
-ROOT = "./hf_investigation/repos/downloads"
+ROOT = "./models/benign/hf_unscanned"
 
 # Skip some files to speed up the scanning
 CHECK = {
