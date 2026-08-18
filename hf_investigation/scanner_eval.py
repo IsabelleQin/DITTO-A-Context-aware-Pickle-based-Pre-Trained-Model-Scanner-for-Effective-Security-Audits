@@ -49,10 +49,9 @@ for root, gt in sources.items():
         try:
             try: model = PyTorchModelWrapper(path).pickled
             except Exception as e:
-                with open(model, "rb") as pickle_file:
+                with open(path, "rb") as pickle_file:
                         model = Pickled.load(pickle_file)
             results = fickling.analysis.check_safety(model).to_dict()
-            # assert results["detailed_results"]
             if results["severity"] == "LIKELY_SAFE": result["fickling"].append(0)
             else: result["fickling"].append(1)
         except: result["fickling"].append(-1)
