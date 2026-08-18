@@ -23,7 +23,7 @@ if __name__ == "__main__":
     Path(f"{result_root}/DITTO_{args.llm}.log").unlink(missing_ok=True)
     set_handler(logger, f"{result_root}/DITTO_{args.llm}.log", "a")
 
-    time_output = f"{result_root}/DITTO_{args.llm}_efficiency.csv"
+    time_output = f"{result_root}/efficiency/DITTO_{args.llm}.csv"
     with open(time_output, "w") as f:
         f.write("model,run,generate,analyze,total\n")
 

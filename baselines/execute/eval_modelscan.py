@@ -6,10 +6,10 @@ from baselines.config import *
 from baselines.utils import *
 from tqdm import tqdm
 
-time_output = f"{result_root}/modelscan_efficiency.csv"
+time_output = f"{result_root}/efficiency/modelscan.csv"
 with open(time_output, "w") as f:
     f.write("model,run,total\n")
-scan_output = f"{result_root}/modelscan_effectiveness.csv"
+scan_output = f"{result_root}/effectiveness/modelscan.csv"
 with open(scan_output, "w") as f:
     f.write("model,run,label\n")
     
@@ -21,14 +21,13 @@ for run in range(0, runs):
         for model in tqdm(models):
             model_path = f"{model_root}/{model}"
             start = time.time()
-            
             try:
                 results = scanner.scan(model_path)
                 assert results["summary"]["scanned"]["total_scanned"] > 0 and not results["errors"]
-                if results["summary"]["total_issues"] == 0: label = "benign"
-                else: label = "malicious"
+                if results["summary"]["total_issues"] == 0: label = 0
+                else: label = 1
             except:
-                label = "failed"
+                label = -1
             end = time.time()
             with open(time_output, "a") as f:
                 f.write(f"{model},{run},{end-start:.3f}\n")

@@ -7,10 +7,11 @@ from fickling.pytorch import PyTorchModelWrapper
 from baselines.config import *
 from baselines.utils import *
 from tqdm import tqdm
-time_output = f"{result_root}/fickling_efficiency.csv"
+
+time_output = f"{result_root}/efficiency/fickling.csv"
 with open(time_output, "w") as f:
     f.write("model,run,total\n")
-scan_output = f"{result_root}/fickling_effectiveness.csv"
+scan_output = f"{result_root}/effectiveness/fickling.csv"
 with open(scan_output, "w") as f:
     f.write("model,run,label\n")
 
@@ -24,17 +25,18 @@ for run in range(0, runs):
         for model_name in tqdm(models):
             model_path = f"{model_root}/{model_name}"
             start = time.time()
+            label = -1
             try:
                 try: model = PyTorchModelWrapper(model_path).pickled
                 except Exception as e:
                     with open(model_path, "rb") as pickle_file:
                             model = Pickled.load(pickle_file)
                 results = fickling.analysis.check_safety(model).to_dict()
-                assert results["detailed_results"]
-                if results["severity"] == "LIKELY_SAFE": label = "benign"
-                else: label = "malicious"
+                if results["severity"] == "LIKELY_SAFE": label = 0
+                else: label = 1
             except: 
-                label = "failed"
+                label = -1
+
             end = time.time()
             with open(time_output, "a") as f:
                 f.write(f"{model_name},{run},{end-start:.3f}\n")
