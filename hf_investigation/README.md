@@ -25,3 +25,6 @@ We investigate the limitations of state-of-the-art model scanners with a total o
 2) seven loading-path bypass examples from Liu et al. (*Path Bypass*)
 3) our two extension-registry attacks (*Ext. Injection*)
 4) 21 benign PTMs labeled "unsafe" by Hugging Face (*HF "Unsafe"*)
+
+The 715 PTMs are provided under the ```models``` directory, and our evaluation result is stored as ```repos/scanner_results.csv```. 
+Run ```scanner_eval.py``` to replicate the result. 
