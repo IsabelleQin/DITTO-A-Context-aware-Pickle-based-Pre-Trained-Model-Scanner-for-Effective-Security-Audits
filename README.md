@@ -6,6 +6,8 @@ The expressive yet dangerous Pickle format is continuously used for Pre-trained 
 
 ## Experiment Replication
 
+This replication package contains the data and code for the two experiments (i.e., Hugging Face investigation and scanner evaluation; DITTO and scanner comparison) documented in our paper. The material and introduction for replicating **HF investigation and scanner evaluation** are stored under ```hf_investigation```; the material and introduction for replicating **DITTO and scanner comparison** are stored under ```baselines```.
+
 ### Dependencies
 - python>=3.11
 - torch
@@ -13,9 +15,6 @@ The expressive yet dangerous Pickle format is continuously used for Pre-trained 
 - fickling>=1.10
 - modelscan
 - picklescan
-
-### General Guideline
-
 
 ### Baseline Scanners
 We compare DITTO with three state-of-the-art static scanners, implemented with their GitHub instructions. 
