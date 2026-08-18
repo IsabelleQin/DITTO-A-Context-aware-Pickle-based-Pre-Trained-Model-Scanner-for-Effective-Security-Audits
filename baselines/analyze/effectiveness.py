@@ -16,7 +16,7 @@ for model_list in model_lists:
     for model in models:
         ground_truths[model] = label
         total += 1
-        if label == "benign": benign += 1
+        if label == 0: benign += 1
         else: malicious += 1
 
 baselines = ["fickling", "modelscan", "picklescan"]
@@ -30,24 +30,24 @@ perf = {tool:
 
 # Check baselines
 for tool in baselines:
-    df = pd.read_csv(f"./baselines/results/{tool}_effectiveness.csv")
+    df = pd.read_csv(f"./baselines/results/effectiveness/{tool}.csv")
     for i, row in df.iterrows():
         model = row["model"]
         run = row["run"]
         label = ground_truths[model]
         # Not scanned, pass
-        if row["label"] == "failed": continue
+        if row["label"] == -1: continue
 
         # Scanning coverage
         perf[tool]["Coverage"][run] += 1
         # Effectiveness metrics
-        if row["label"] == "malicious" and label == "malicious": 
+        if row["label"] == 1 and label == 1: 
             perf[tool]["TP"][run] += 1
-        elif row["label"] == "malicious" and label == "benign": 
+        elif row["label"] == 1 and label == 0: 
             perf[tool]["FP"][run] += 1
-        elif row["label"] == "benign" and label == "benign": 
+        elif row["label"] == 0 and label == 0: 
             perf[tool]["TN"][run] += 1
-        elif row["label"] == "benign" and label == "malicious": 
+        elif row["label"] == 0 and label == 1: 
             perf[tool]["FN"][run] += 1
         else: raise ValueError("Should never have this??")
         
@@ -63,18 +63,17 @@ for llm in llms:
                     assessment = res["assessment"]
             except:
                 assessment = "Likely benign"
-
             if assessment == "Unknown due to an error": continue
 
             # Scanning coverage
             perf[ditto]["Coverage"][run] += 1
-            if assessment == "Likely malicious" and label == "malicious": 
+            if assessment == "Likely malicious" and label == 1: 
                 perf[ditto]["TP"][run] += 1
-            elif assessment == "Likely malicious" and label == "benign": 
+            elif assessment == "Likely malicious" and label == 0: 
                 perf[ditto]["FP"][run] += 1
-            elif assessment == "Likely benign" and label == "benign": 
+            elif assessment == "Likely benign" and label == 0: 
                 perf[ditto]["TN"][run] += 1
-            elif assessment == "Likely benign" and label == "malicious": 
+            elif assessment == "Likely benign" and label == 1: 
                 perf[ditto]["FN"][run] += 1
             else: raise ValueError("Should never have this??")
 
@@ -82,7 +81,6 @@ for llm in llms:
 results = {"Tool": [], "Coverage": [], "SC": [], "FPR": [], "FNR": [], "F1": []}
 for tool in baselines+ditto_variants:
     results["Tool"].append(tool)
-    print(tool)
     for run in range(runs):
         perf[tool]["SC"][run] = perf[tool]["Coverage"][run]/total
         perf[tool]["FPR"][run] = perf[tool]["FP"][run]/(perf[tool]["FP"][run]+perf[tool]["TN"][run])
@@ -98,4 +96,3 @@ for tool in baselines+ditto_variants:
         results[metric].append(avg)
 
 pd.DataFrame(results).to_csv("./baselines/results/summary_effectiveness.csv", float_format='%.3f', index=None)
-exit()
