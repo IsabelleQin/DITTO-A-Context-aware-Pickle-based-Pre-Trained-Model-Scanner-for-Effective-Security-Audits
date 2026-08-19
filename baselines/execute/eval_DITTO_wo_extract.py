@@ -21,9 +21,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     Path(f"{result_root}/DITTO_{args.llm}.log").unlink(missing_ok=True)
-    set_handler(logger, f"{result_root}/DITTO_{args.llm}.log", "a")
+    set_handler(logger, f"{result_root}/noextract_DITTO_{args.llm}.log", "a")
 
-    time_output = f"{result_root}/efficiency/DITTO_{args.llm}.csv"
+    time_output = f"{result_root}/efficiency/DITTO_noextract_{args.llm}.csv"
     with open(time_output, "w") as f:
         f.write("model,run,generate,analyze,total\n")
 
@@ -50,17 +50,13 @@ if __name__ == "__main__":
                     with open(time_output, "a") as f:
                         f.write(f"{model},{run},{gen_time:.3f},0,{gen_time:.3f}\n")
                 else:
-                    # Prepare for extraction and query
-                    extract_path = f"{result_root}/DITTO/critical_states/{model}.states"
-                    Path(extract_path).parent.mkdir(parents=True, exist_ok=True)
+                    # Prepare for query
                     analysis_path = f"{result_root}/DITTO/{args.llm}/{model}_run{run}.json"
                     Path(analysis_path).parent.mkdir(parents=True, exist_ok=True)
                         
                     # Compress the log and extract risky states
                     start = time.time()
-                    extract(log_path, extract_path)
-                    # Query the LLM
-                    query(args.llm, extract_path, analysis_path)
+                    query(args.llm, log_path, analysis_path)
                     end = time.time()
                     analyze_time = end-start
                     full_time = gen_time+analyze_time
