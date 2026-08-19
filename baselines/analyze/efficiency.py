@@ -13,7 +13,7 @@ overall = {}
 DITTO_components = {}
 for tool in baselines+ditto_variants:
     print("="*10)
-    result = pd.read_csv(f"./baselines/results/{tool}_efficiency.csv")
+    result = pd.read_csv(f"./baselines/results/efficiency/{tool}.csv")
     # Check overall
     print(f"{tool} Total\nmax: {result['total'].max():.3f}, mean: {result['total'].mean():.3f}")
 
