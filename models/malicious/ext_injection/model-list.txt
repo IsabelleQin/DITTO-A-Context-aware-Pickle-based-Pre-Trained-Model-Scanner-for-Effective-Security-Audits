@@ -1,0 +1,2 @@
+ext_injection/inverted_registry.pkl
+ext_injection/add_extension.pkl

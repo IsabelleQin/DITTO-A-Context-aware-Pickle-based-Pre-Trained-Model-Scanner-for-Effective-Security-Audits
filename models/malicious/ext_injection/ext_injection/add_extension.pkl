@@ -1,0 +1,7 @@
+€ccopyreg
+add_extension
+Vos
+Vsystem
+I1
+‡R‚Vecho 'Yippie!'
+…R.

@@ -1,0 +1,7 @@
+path_bypass/bz22pickle.joblib
+path_bypass/gzip2pickle.joblib
+path_bypass/lz42pickle.joblib
+path_bypass/lzma2pickle.joblib
+path_bypass/xz2pickle.joblib
+path_bypass/zlib2pickle.joblib
+path_bypass/tar2pickle.tar
