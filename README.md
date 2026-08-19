@@ -1,6 +1,6 @@
 # DITTO-A-Context-aware-Pickle-based-Pre-Trained-Model-Scanner-for-Effective-Security-Audits
 The replication package of "DITTO: A Context-aware Pickle-based Pre-Trained Model Scanner for Effective Security Audits"
-<img src="ditto.png" alt="DITTO" width="400">
+<img src="ditto.png" alt="DITTO" width="100">
 
 ## Introduction
 The expressive yet dangerous Pickle format is continuously used for Pre-trained model (PTM) exchange on public model hubs. To mitigate the security risks during Pickle-based PTM reuse, we present DITTO, a stack-based, context-aware scanner for Pickle-based PTMs. 
