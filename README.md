@@ -1,12 +1,11 @@
 # DITTO-A-Context-aware-Pickle-based-Pre-Trained-Model-Scanner-for-Effective-Security-Audits
 The replication package of "DITTO: A Context-aware Pickle-based Pre-Trained Model Scanner for Effective Security Audits"
+<img src="ditto.png" alt="DITTO" width="400">
 
 ## Introduction
-![DITTO](ditto.png)
 The expressive yet dangerous Pickle format is continuously used for Pre-trained model (PTM) exchange on public model hubs. To mitigate the security risks during Pickle-based PTM reuse, we present DITTO, a stack-based, context-aware scanner for Pickle-based PTMs. 
 
 ## Experiment Replication
-
 This replication package contains the data and code for the two experiments (i.e., Hugging Face investigation and scanner evaluation; DITTO and scanner comparison) documented in our paper. 
 To replicate our experiments, please first follow the instructions in ```./models/README.md``` to obtain the **PickleBench** dataset. 
 The material and introduction for replicating **HF investigation and scanner evaluation** are stored under ```hf_investigation```; the material and introduction for replicating **DITTO and scanner comparison** are stored under ```baselines```. 
