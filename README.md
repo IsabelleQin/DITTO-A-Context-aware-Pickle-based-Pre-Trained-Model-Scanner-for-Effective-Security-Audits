@@ -10,18 +10,19 @@ This replication package contains the data and code for the two experiments (i.e
 
 ### Dependencies
 - python>=3.11
+- hf-xet=1.6.0
+- huggingface-hub=1.27.0
+- joblib
+- fickling=1.12
+- modelscan=0.8.8
+- nemo-toolkit=3.0.0
+- openai=2.53.0
+- pandas
+- picklescan=1.0.5
+- pydantic
 - torch=2.13.0
-- numpy
-- fickling>=1.10
-- modelscan
-- picklescan
-
-### Baseline Scanners
-We compare DITTO with three state-of-the-art static scanners, implemented with their GitHub instructions. 
-
-- **[PickleScan](https://github.com/mmaitre314/picklescan)**: We use ``picklescan.cli.scan_file_path`` for model file scanning. 
-- **[ModelScan](https://github.com/protectai/modelscan)**: We initialize a scanner with ``ModelScan`` to scan all model files.
-- **[Fickling](https://github.com/trailofbits/fickling)**: We attempt to use ``PyTorchModelWrapper`` to load each model file. If failed, we fall back to its ``Pickled`` module for loading. Then, we use ``fickling.analysis.check_safety`` to detect and output anomalous behaviors.
+- tqdm
+- transformers=5.14.1
 
 ## DITTO
 
