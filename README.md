@@ -6,7 +6,9 @@ The expressive yet dangerous Pickle format is continuously used for Pre-trained 
 
 ## Experiment Replication
 
-This replication package contains the data and code for the two experiments (i.e., Hugging Face investigation and scanner evaluation; DITTO and scanner comparison) documented in our paper. The material and introduction for replicating **HF investigation and scanner evaluation** are stored under ```hf_investigation```; the material and introduction for replicating **DITTO and scanner comparison** are stored under ```baselines```.
+This replication package contains the data and code for the two experiments (i.e., Hugging Face investigation and scanner evaluation; DITTO and scanner comparison) documented in our paper. 
+To replicate our experiments, please first follow the instructions in ```./models/README.md``` to obtain the **PickleBench** dataset. 
+The material and introduction for replicating **HF investigation and scanner evaluation** are stored under ```hf_investigation```; the material and introduction for replicating **DITTO and scanner comparison** are stored under ```baselines```. 
 
 ### Dependencies
 - python>=3.11
