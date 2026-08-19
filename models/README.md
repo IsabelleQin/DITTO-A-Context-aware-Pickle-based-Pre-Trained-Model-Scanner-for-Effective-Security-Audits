@@ -13,14 +13,20 @@ Please follow the instructions to obtain the PickleBench dataset.
    Run
    
    ```
-   python download_hf.py
+   python ./models/download_hf.py
    ```
    
    to obtain the 706 models. 
    The "HF Unscanned" and "HF Unsafe" models will be stored under the ```benign``` repository. 
 
 ### Prepare the PickleBall dataset
-Run ```download_pickleball.py``` to download the [PickleBall dataset](https://zenodo.org/records/16974645). 
+Run 
+
+```
+python ./models/download_pickleball.py
+```
+
+to download the [PickleBall dataset](https://zenodo.org/records/16974645). 
 The benign and malicious tarballs will be stored under ```benign/pickleball``` and ```malicious/pickleball```, respectively. 
 Afterwards, follow the instructions in [PickleBall's replication package](https://github.com/columbia/pickleball/tree/main/evaluation) to extract models from the tarballs. 
 Then, remove ```oceanhacktitude/tinymodel/tinymodel/twitter-roberta-base-sentiment.bin``` from ```malicious/pickleball/model-list.txt```. 
